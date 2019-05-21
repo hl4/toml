@@ -1,10 +1,14 @@
 # TOML Changelog
 
+## Unreleased
+
+* None.
+
 ## 0.5.0 / 2018-07-11
 
 * Add dotted keys.
 * Add hex, octal, and binary integer formats.
-* Add special float values (inf, nan)
+* Add special float values (inf, nan).
 * Rename Datetime to Offset Date-Time.
 * Add Local Date-Time.
 * Add Local Date.

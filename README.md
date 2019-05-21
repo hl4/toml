@@ -47,6 +47,7 @@ Table of contents
 - [Inline Table](#user-content-inline-table)
 - [Array of Tables](#user-content-array-of-tables)
 - [Filename Extension](#user-content-filename-extension)
+- [MIME Type](#user-content-mime-type)
 - [Comparison with Other Formats](#user-content-comparison-with-other-formats)
 - [Get Involved](#user-content-get-involved)
 - [Wiki](#user-content-wiki)
@@ -366,9 +367,9 @@ Leading zeros are not allowed. Integer values `-0` and `+0` are valid and
 identical to an unprefixed zero.
 
 Non-negative integer values may also be expressed in hexadecimal, octal, or
-binary. In these formats, leading zeros are allowed (after the prefix). Hex
-values are case insensitive. Underscores are allowed between digits (but not
-between the prefix and the value).
+binary. In these formats, leading `+` is not allowed and leading zeros are
+allowed (after the prefix). Hex values are case insensitive. Underscores are
+allowed between digits (but not between the prefix and the value).
 
 ```toml
 # hexadecimal with prefix `0x`
@@ -392,8 +393,8 @@ Float
 
 Floats should be implemented as IEEE 754 binary64 values.
 
-A float consists of an integer part (which follows the same rules as integer
-values) followed by a fractional part and/or an exponent part. If both a
+A float consists of an integer part (which follows the same rules as decimal
+integer values) followed by a fractional part and/or an exponent part. If both a
 fractional part and exponent part are present, the fractional part must precede
 the exponent part.
 
@@ -415,13 +416,13 @@ flt7 = 6.626e-34
 A fractional part is a decimal point followed by one or more digits.
 
 An exponent part is an E (upper or lower case) followed by an integer part
-(which follows the same rules as integer values).
+(which follows the same rules as decimal integer values).
 
 Similar to integers, you may use underscores to enhance readability. Each
 underscore must be surrounded by at least one digit.
 
 ```toml
-flt8 = 9_224_617.445_991_228_313
+flt8 = 224_617.445_991_228
 ```
 
 Float values `-0.0` and `+0.0` are valid and should map according to IEEE 754.
@@ -540,8 +541,8 @@ arr5 = [ [ 1, 2 ], ["a", "b", "c"] ]
 arr6 = [ 1, 2.0 ] # INVALID
 ```
 
-Arrays can also be multiline. Terminating commas (also called trailing commas)
-are ok after the last value of the array. There can be an arbitrary number of
+Arrays can also be multiline. A terminating comma (also called trailing comma)
+is ok after the last value of the array. There can be an arbitrary number of
 newlines and comments before a value and before the closing bracket.
 
 ```toml
